@@ -1,1 +1,1 @@
-<?php
+<?php   echo 'Page not found';
