@@ -1,4 +1,11 @@
 <?php
+
+require('php/fonctions/fonctions.php');
+
+    $db=NULL;
+    connexion($db);
+       
+
         $sql = 'SELECT * FROM `bouteilles`';
 // On prépare la requête puis on l'éxécute
         $query = $db->prepare($sql);
@@ -6,10 +13,10 @@
 
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
-        
-
-
         require_once('php/connect/close.php');
+
+
+       
     ?>
 
 <!DOCTYPE html>
@@ -60,11 +67,17 @@
                         ?>
                     </tbody>
                 </table>
-                <a href="php/add/add.php" class="btn btn-primary">Ajouter une bouteille de vin</a>
+                <a href="php/form/addform.php" class="btn btn-primary">Ajouter une bouteille de vin</a>
             </section>
         </div>
     </main>
+<?php
 
+
+
+addbottle('Lalande de Pomerol', 'Bordeaux', 'France', 'Aquitaine', '', 'Très bon vin', 2015);
+
+?>
 
 </body>
 </html>
