@@ -2,6 +2,8 @@
 
 require_once('php/connect/connect.php');
 
+// Ajouter des bouteilles
+
 function addbottle(string $nom, string $cepage, string $pays, string $region, string $image, string $description, int $annee) {
     $dbco;
     
