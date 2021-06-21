@@ -1,7 +1,7 @@
 
 <?php
 
-require_once('php/connect/connect.php');
+require('./php/connect/connect.php');
 session_start();
 
         $url = $_GET['url'] ?? '';
@@ -15,6 +15,9 @@ session_start();
         }
         elseif($url === 'addform') {
             require './php/template/addform.php';
+        }
+        elseif($url === 'edit') {
+            require './php/template/edit.php';
         }
         else
         {

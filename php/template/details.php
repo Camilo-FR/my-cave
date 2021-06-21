@@ -21,11 +21,11 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
 
     if(!$bottle){
         $_SESSION['erreur'] = "Cet id n'existe pas";
-        header('Location: http://localhost/my-cave/home');
+        header('Location: http://localhost/my-cave/');
     }
 }else{
     $_SESSION['erreur'] = 'URL invalide';
-    header('Location: http://localhost/my-cave/home');
+    header('Location: http://localhost/my-cave/');
 }
 ?>
 
@@ -50,7 +50,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
             <p>Région : <?= $bottle['region']?></p>
             <p>Description : <?= $bottle['description']?></p>
             <p>Année : <?= $bottle['annee']?></p>
-            <p><a href="edit.php?id=<?=$bottle['id'] ?>" class="btn btn-primary">Modifier</a> <a href="index.php" class="btn btn-primary">Retour</a> </p>
+            <p><a href="edit?id=<?=$bottle['id'] ?>" class="btn btn-primary">Modifier</a> <a href="index.php" class="btn btn-primary">Retour</a> </p>
         </section>
     </div>
 </div>

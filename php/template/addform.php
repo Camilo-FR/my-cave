@@ -29,7 +29,7 @@ require('php/fonctions/fonctions.php');
             
 
             $_SESSION['message'] = "Bouteille ajouté";
-            header('Location: index.php');
+            header('Location: http://localhost/my-cave/');
 
             require_once('php/connect/close.php');
         }else{
@@ -92,7 +92,7 @@ require('php/fonctions/fonctions.php');
                 <label for="description">Description</label>
                 <input type="text" id="description" name="description" class="form-control">
                 </div>
-                <button class="btn btn-primary">Envoyer</button>
+                <button class="btn btn-primary" type="submit">Envoyer</button>
             </form> 
             </section>
         </div>
