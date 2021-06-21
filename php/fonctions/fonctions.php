@@ -5,7 +5,7 @@ require_once('php/connect/connect.php');
 // Ajouter des bouteilles
 
 function addbottle(string $nom, string $cepage, string $pays, string $region, string $image, string $description, int $annee) {
-    $dbco;
+    $dbco="";
     
     connexion($dbco);
     
@@ -19,14 +19,14 @@ function addbottle(string $nom, string $cepage, string $pays, string $region, st
         $query->bindValue(':region',$region);
         $query->bindValue(':image',$image);
         $query->bindValue(':description',$description);
-        $query->bindValue(':annee',$annee);
+        $query->bindValue(':annee',$annee, PDO::PARAM_INT);
 
         $query->execute();
 
-        echo "C'est ok ! ";
+        echo "Fonction add ok ! ";
        
 
     } catch(PDOException $e){
-        echo "Erreur : " . $e->getMessage();
+        return "Erreur : " . $e->getMessage();
     }
 }

@@ -1,22 +1,21 @@
 <?php
 
-require('php/fonctions/fonctions.php');
-
-    $db=NULL;
+    $db;
     connexion($db);
        
+// On récupère les informations dans notre table
 
         $sql = 'SELECT * FROM `bouteilles`';
+
 // On prépare la requête puis on l'éxécute
+        
         $query = $db->prepare($sql);
         $query->execute();
 
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
-        require_once('php/connect/close.php');
+    require_once('php/connect/close.php');
 
-
-       
     ?>
 
 <!DOCTYPE html>
@@ -37,6 +36,15 @@ require('php/fonctions/fonctions.php');
     <main class="container">
         <div class="row">
             <section class="col-12">
+            <?php
+            if(!empty($_SESSION['erreur'])) {
+                echo '<div class="alert alert-danger" role="alert">
+                '. $_SESSION['erreur'].'
+              </div>';
+              $_SESSION['erreur'] = "";
+            }
+            ?>
+            <h1>Liste des bouteilles</h1>
                 <table class="table">
                     <thead>
                         <th>ID</th>
@@ -47,6 +55,7 @@ require('php/fonctions/fonctions.php');
                         <th>Image</th>
                         <th>Description</th>
                         <th>Année</th>
+                        <th>Actions</th>
                     </thead>
                     <tbody>
                         <?php
@@ -61,21 +70,19 @@ require('php/fonctions/fonctions.php');
                             <td><?= $bottle['image'] ?></td>
                             <td><?= $bottle['description'] ?></td>
                             <td><?= $bottle['annee'] ?></td>
+                            <td> <a href="details?id=<?=$bottle['id']?>" class="btn btn-primary"> Voir </a> </td>
                         </tr>
                         <?php
                         }
                         ?>
                     </tbody>
                 </table>
-                <a href="php/form/addform.php" class="btn btn-primary">Ajouter une bouteille de vin</a>
+                <a href="php/template/addform" class="btn btn-primary">Ajouter une bouteille de vin</a>
             </section>
         </div>
     </main>
 <?php
 
-
-
-addbottle('Lalande de Pomerol', 'Bordeaux', 'France', 'Aquitaine', '', 'Très bon vin', 2015);
 
 ?>
 
