@@ -1,32 +1,8 @@
 <?php
 // on démarre une session via le routeur
 
-// Est-ce que l'id existe et est-ce qu'il n'est pas vide dans l'URL
-if(isset($_GET['id']) && !empty($_GET['id'])) {
+require('php/form_conditions/verif_id.php');
 
-    $db;
-    connexion($db);
-    
-    // On nettoie l'id envoyé
-    $id = strip_tags($_GET['id']);
-
-    $sql = 'SELECT * FROM `bouteilles` WHERE `id` = :id;';
-
-    $query = $db->prepare($sql);
-    // on "accroche" les paramètres
-    $query->bindValue(':id', $id, PDO::PARAM_INT);
-
-    $query->execute();
-    $bottle = $query->fetch();
-
-    if(!$bottle){
-        $_SESSION['erreur'] = "Cet id n'existe pas";
-        header('Location: http://localhost/my-cave/');
-    }
-}else{
-    $_SESSION['erreur'] = 'URL invalide';
-    header('Location: http://localhost/my-cave/');
-}
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +26,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
             <p>Région : <?= $bottle['region']?></p>
             <p>Description : <?= $bottle['description']?></p>
             <p>Année : <?= $bottle['annee']?></p>
-            <p><a href="edit?id=<?=$bottle['id'] ?>" class="btn btn-primary">Modifier</a> <a href="php/delete/delete.php?id=<?=$bottle['id'] ?>" class="btn btn-primary">Supprimer</a> <a href="index.php" class="btn btn-primary">Retour</a> </p>
+            <p><a href="edit?id=<?=$bottle['id'] ?>" class="btn btn-primary">Modifier</a> <a href="php/form_conditions/delete.php?id=<?=$bottle['id'] ?>" class="btn btn-primary">Supprimer</a> <a href="index.php" class="btn btn-primary">Retour</a> </p>
         </section>
     </div>
 </div>

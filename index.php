@@ -17,7 +17,7 @@ session_start();
             require './php/template/addform.php';
         }
         elseif($url === 'edit') {
-            require './php/template/edit.php';
+            require './php/template/editform.php';
         }
         else
         {
