@@ -1,12 +1,47 @@
 <?php
-    
 
-    $db;
-    connexion($db);
+require('php/fonctions/fonctions.php');
+    
+    if($_POST){
+        if(isset($_POST['nom']) && !empty($_POST['nom'])
+        && isset($_POST['cepage']) && !empty($_POST['cepage'])
+        && isset($_POST['pays']) && !empty($_POST['pays'])
+        && isset($_POST['region']) && !empty($_POST['region'])
+        && isset($_POST['image']) && !empty($_POST['image'])
+        && isset($_POST['annee']) && !empty($_POST['annee'])
+        && isset($_POST['description']) && !empty($_POST['description'])){
+
+            $db;
+            connexion($db);
+            
+            // On nettoie les données envoyées
+
+            $nom = valid_data($_POST['nom']);
+            $cepage = valid_data($_POST['cepage']);
+            $pays = valid_data($_POST['pays']);
+            $region = valid_data($_POST['region']);
+            $image = valid_data($_POST['image']);
+            $annee = valid_data($_POST['annee']);
+            $description = valid_data($_POST['description']);
+
+
+            addbottle($nom, $cepage, $pays, $region, $image, $description, $annee);
+            
+
+            $_SESSION['message'] = "Bouteille ajouté";
+            header('Location: index.php');
+
+            require_once('php/connect/close.php');
+        }else{
+            $_SESSION['erreur'] = "Le formulaire est incomplet";
+        }
+    }
+
+
        
 
 
-    require_once('php/connect/close.php');
+ 
 
     ?>
 
@@ -30,23 +65,38 @@
             <h1>Ajouter une bouteille</h1>
             <form action="" method="post">
                 <div class="form-group">
-                <label for="bouteille">Bouteille</label>
-                <input type="text" id="produit" name="bouteille">
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" name="nom" class="form-control">
                 </div>
                 <div class="form-group">
-                <label for=""></label>
+                <label for="cepage">Cépage</label>
+                <input type="text" id="cepage" name="cepage" class="form-control">
                 </div>
                 <div class="form-group">
-                <label for=""></label>
+                <label for="pays">Pays</label>
+                <input type="text" id="pays" name="pays" class="form-control">
                 </div>
+                <div class="form-group">
+                <label for="region">Région</label>
+                <input type="text" id="region" name="region" class="form-control">
+                </div>
+                <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" id="image" name="image" class="form-control">
+                </div>
+                <div class="form-group">
+                <label for="annee">Année</label>
+                <input type="number" id="annee" name="annee" class="form-control">
+                </div>
+                <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" id="description" name="description" class="form-control">
+                </div>
+                <button class="btn btn-primary">Envoyer</button>
             </form> 
             </section>
         </div>
     </main>
-<?php
-
-
-?>
 
 </body>
 </html>

@@ -43,6 +43,13 @@
               </div>';
               $_SESSION['erreur'] = "";
             }
+            
+            if(!empty($_SESSION['message'])) {
+                echo '<div class="alert alert-success" role="alert">
+                '. $_SESSION['message'].'
+              </div>';
+              $_SESSION['message'] = "";
+            }
             ?>
             <h1>Liste des bouteilles</h1>
                 <table class="table">
@@ -77,14 +84,11 @@
                         ?>
                     </tbody>
                 </table>
-                <a href="php/template/addform" class="btn btn-primary">Ajouter une bouteille de vin</a>
+                <a href="addform" class="btn btn-primary">Ajouter une bouteille de vin</a>
             </section>
         </div>
     </main>
-<?php
 
-
-?>
 
 </body>
 </html>
