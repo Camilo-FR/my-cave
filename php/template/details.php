@@ -43,14 +43,14 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
 <div class="container">
     <div class="row">
         <section class="col-12">
-            <h1>Détails du produit : <?= $bottle['nom']?></h1>
+            <h1>Détails de la bouteille : <?= $bottle['nom']?></h1>
             <p>Image : <?= $bottle['image']?></p>     
             <p>Cépage : <?= $bottle['cepage']?></p>
             <p>Pays : <?= $bottle['pays']?></p>
             <p>Région : <?= $bottle['region']?></p>
             <p>Description : <?= $bottle['description']?></p>
             <p>Année : <?= $bottle['annee']?></p>
-            <p><a href="edit?id=<?=$bottle['id'] ?>" class="btn btn-primary">Modifier</a> <a href="index.php" class="btn btn-primary">Retour</a> </p>
+            <p><a href="edit?id=<?=$bottle['id'] ?>" class="btn btn-primary">Modifier</a> <a href="php/delete/delete.php?id=<?=$bottle['id'] ?>" class="btn btn-primary">Supprimer</a> <a href="index.php" class="btn btn-primary">Retour</a> </p>
         </section>
     </div>
 </div>

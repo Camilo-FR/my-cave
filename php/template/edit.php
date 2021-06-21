@@ -27,10 +27,10 @@ if($_POST){
         $description = valid_data($_POST['description']);
 
 
-        updatebottle($nom, $cepage, $pays, $region, $image, $description, $annee);
+        updatebottle($id, $nom, $cepage, $pays, $region, $image, $description, $annee);
 
         $_SESSION['message'] = "Bouteille modifiée avec succès !";
-        header('Location: http://localhost/my-cave/php/template/home');
+        header('Location: http://localhost/my-cave/');
 
         require_once('php/connect/close.php');
     }else{

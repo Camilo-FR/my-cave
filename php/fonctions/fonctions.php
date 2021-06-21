@@ -41,7 +41,7 @@ function addbottle(string $nom, string $cepage, string $pays, string $region, st
 
 // UPDATE
 
-function updatebottle(string $nom, string $cepage, string $pays, string $region, string $image, string $description, int $annee) {
+function updatebottle(int $id, string $nom, string $cepage, string $pays, string $region, string $image, string $description, int $annee) {
     
     $db;
     connexion($db);

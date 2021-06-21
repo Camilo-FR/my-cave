@@ -77,7 +77,7 @@
                             <td><?= $bottle['image'] ?></td>
                             <td><?= $bottle['description'] ?></td>
                             <td><?= $bottle['annee'] ?></td>
-                            <td> <a href="details?id=<?=$bottle['id']?>" class="btn btn-primary"> Voir </a> </td>
+                            <td>  <a href="details?id=<?=$bottle['id']?>" class="btn btn-primary"> Voir </a> </td>
                         </tr>
                         <?php
                         }
