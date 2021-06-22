@@ -1,6 +1,7 @@
 <?php
 
 require('php/form_conditions/add.php');
+require('php/form_conditions/addupload.php');
 
 ?>
 
@@ -21,8 +22,16 @@ require('php/form_conditions/add.php');
     <main class="container">
         <div class="row">
             <section class="col-12">
+            <?php
+            if(!empty($_SESSION['message'])) {
+                echo '<div class="alert alert-success" role="alert">
+                '. $_SESSION['message'].'
+              </div>';
+              $_SESSION['message'] = "";
+            }
+            ?>
             <h1>Ajouter une bouteille</h1>
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                 <label for="nom">Nom</label>
                 <input type="text" id="nom" name="nom" class="form-control">
@@ -40,16 +49,18 @@ require('php/form_conditions/add.php');
                 <input type="text" id="region" name="region" class="form-control">
                 </div>
                 <div class="form-group">
-                <label for="image">Image</label>
-                <input type="file" id="image" name="image" class="form-control">
-                </div>
-                <div class="form-group">
                 <label for="annee">Année</label>
                 <input type="number" id="annee" name="annee" class="form-control">
                 </div>
                 <div class="form-group">
                 <label for="description">Description</label>
                 <input type="text" id="description" name="description" class="form-control">
+                </div>
+                <div class="form-group">
+                <label for="image">Image</label>
+                <p>Extensions acceptées : 'jpg', 'jpeg', 'gif', 'png'</p>
+                <p>Taille maximum : 4Mo</p>
+                <input type="file" id="image" name="image" class="form-control" >
                 </div>
                 <p><button class="btn btn-primary" type="submit">Envoyer</button> <a href="index.php" class="btn btn-primary">Retour</a></p> 
             </form> 

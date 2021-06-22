@@ -1,7 +1,7 @@
 <?php 
 
 require('php/form_conditions/edit.php');
-require('php/form_conditions/upload.php');
+require('php/form_conditions/editupload.php');
 
 ?>
        
@@ -25,6 +25,14 @@ require('php/form_conditions/upload.php');
         <div class="row">
             <section class="col-12">
             <h2>Veuillez d'abord modifier l'image</h2>
+            <?php
+            if(!empty($_SESSION['message'])) {
+                echo '<div class="alert alert-success" role="alert">
+                '. $_SESSION['message'].'
+              </div>';
+              $_SESSION['message'] = "";
+            }
+            ?>
             <p>Extensions acceptées : 'jpg', 'jpeg', 'gif', 'png'</p>
             <p>Taille maximum : 4Mo</p>
             <form action="" method="POST" enctype="multipart/form-data">

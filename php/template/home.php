@@ -27,8 +27,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Cave</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <h1>Hello World !!</h1>
@@ -76,7 +82,7 @@
                             <td><?= $bottle['cepage'] ?></td>
                             <td><?= $bottle['pays'] ?></td>
                             <td><?= $bottle['region'] ?></td>
-                            <td><?= $bottle['image'] ?></td>
+                            <td> <img src="design/images/<?= $bottle['image'] ?>" alt="nouvelle-bouteille" class="img-fluid"> </td>
                             <td><?= $bottle['description'] ?></td>
                             <td><?= $bottle['annee'] ?></td>
                             <td>  <a href="details?id=<?=$bottle['id']?>" class="btn btn-primary"> Voir </a> </td>
@@ -92,5 +98,6 @@
     </main>
 
 
+<script src="assets/js/script.js"></script>
 </body>
 </html>

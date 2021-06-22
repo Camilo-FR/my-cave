@@ -21,20 +21,12 @@ if(isset($_FILES['image'])){
     if(in_array($extension, $extensionAutorisees) && $size <= $tailleMax && $error == 0 ){
 
     $uniqueName = uniqid('', true);
-    $fileName = $uniqueName.'.'.$extension;
+    $image= $uniqueName.'.'.$extension;
 
-        move_uploaded_file($tmpname, 'design/images'.$fileName);
+        move_uploaded_file($tmpname, 'design/images/'.$image);
 
-        $req = $db->prepare('UPDATE `bouteilles` SET `image`=:image WHERE `id`=:id;');
-        $req->execute([$fileName]);
-
-        echo 'Image enregistrée';
+           
     }else{
         echo 'Mauvaise extension, taille trop importante ou fichier corrompu';
-    }
-
-
-    
+    }    
 }
-
-
