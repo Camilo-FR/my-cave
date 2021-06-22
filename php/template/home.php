@@ -1,5 +1,7 @@
 <?php
 
+// require('php/form_conditions/upload.php');
+
     $db;
     connexion($db);
        

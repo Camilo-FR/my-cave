@@ -1,6 +1,7 @@
 <?php 
 
 require('php/form_conditions/edit.php');
+require('php/form_conditions/upload.php');
 
 ?>
        
@@ -23,8 +24,18 @@ require('php/form_conditions/edit.php');
     <main class="container">
         <div class="row">
             <section class="col-12">
-            <h1>Modifier une bouteille</h1>
-            <form action="" method="post">
+            <h2>Veuillez d'abord modifier l'image</h2>
+            <p>Extensions acceptées : 'jpg', 'jpeg', 'gif', 'png'</p>
+            <p>Taille maximum : 4Mo</p>
+            <form action="" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" id="image" name="image" class="form-control" value="<?= $bottle['image'] ?>">
+                <button class="btn btn-primary" type="submit">Modifier l'image</button>
+                </div>
+            </form>
+            <h2>Modifier les caractéristiques de la bouteille</h2>
+            <form action="" method="POST">
                 <div class="form-group">
                 <label for="nom">Nom</label>
                 <input type="text" id="nom" name="nom" class="form-control" value="<?= $bottle['nom'] ?>">
@@ -42,10 +53,6 @@ require('php/form_conditions/edit.php');
                 <input type="text" id="region" name="region" class="form-control" value="<?= $bottle['region'] ?>">
                 </div>
                 <div class="form-group">
-                <label for="image">Image</label>
-                <input type="file" id="image" name="image" class="form-control" value="<?= $bottle['image'] ?>">
-                </div>
-                <div class="form-group">
                 <label for="annee">Année</label>
                 <input type="number" id="annee" name="annee" class="form-control" value="<?= $bottle['annee'] ?>">
                 </div>
@@ -54,8 +61,9 @@ require('php/form_conditions/edit.php');
                 <input type="text" id="description" name="description" class="form-control" value="<?= $bottle['description'] ?>">
                 </div>
                 <input type="hidden" value="<?= $bottle['id'] ?>" name="id">
-                <button class="btn btn-primary" type="submit">Envoyer</button>
-            </form> 
+                <p><button class="btn btn-primary" type="submit">Envoyer</button> <a href="index.php" class="btn btn-primary">Retour</a></p> 
+            </form>
+         
             </section>
         </div>
     </main>

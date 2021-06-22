@@ -51,7 +51,7 @@ require('php/form_conditions/add.php');
                 <label for="description">Description</label>
                 <input type="text" id="description" name="description" class="form-control">
                 </div>
-                <button class="btn btn-primary" type="submit">Envoyer</button>
+                <p><button class="btn btn-primary" type="submit">Envoyer</button> <a href="index.php" class="btn btn-primary">Retour</a></p> 
             </form> 
             </section>
         </div>

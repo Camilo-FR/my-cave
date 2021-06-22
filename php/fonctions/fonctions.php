@@ -14,7 +14,7 @@ function valid_data($data) {
 
 // Ajouter des bouteilles
 
-function addbottle(string $nom, string $cepage, string $pays, string $region, string $image, string $description, int $annee) {
+function addbottle(string $nom, string $cepage, string $pays, string $region, string $description, int $annee) {
     
     $db;   
     connexion($db);
@@ -27,7 +27,6 @@ function addbottle(string $nom, string $cepage, string $pays, string $region, st
         $query->bindValue(':cepage',$cepage, PDO::PARAM_STR);
         $query->bindValue(':pays',$pays, PDO::PARAM_STR);
         $query->bindValue(':region',$region, PDO::PARAM_STR);
-        $query->bindValue(':image',$image, PDO::PARAM_STR);
         $query->bindValue(':description',$description, PDO::PARAM_STR);
         $query->bindValue(':annee',$annee, PDO::PARAM_INT);
 
@@ -41,13 +40,13 @@ function addbottle(string $nom, string $cepage, string $pays, string $region, st
 
 // UPDATE
 
-function updatebottle(int $id, string $nom, string $cepage, string $pays, string $region, string $image, string $description, int $annee) {
+function updatebottle(int $id, string $nom, string $cepage, string $pays, string $region, string $description, int $annee) {
     
     $db;
     connexion($db);
     
     try {
-        $query = $db->prepare("UPDATE `bouteilles` SET `nom`=:nom, `cepage`=:cepage, `pays`=:pays, `region`=:region, `image`=:image, `description`=:description, `annee`=:annee
+        $query = $db->prepare("UPDATE `bouteilles` SET `nom`=:nom, `cepage`=:cepage, `pays`=:pays, `region`=:region, `description`=:description, `annee`=:annee
                 WHERE `id`=:id;");
                     
         $query->bindValue(':id',$id, PDO::PARAM_INT);
@@ -55,7 +54,6 @@ function updatebottle(int $id, string $nom, string $cepage, string $pays, string
         $query->bindValue(':cepage',$cepage, PDO::PARAM_STR);
         $query->bindValue(':pays',$pays, PDO::PARAM_STR);
         $query->bindValue(':region',$region, PDO::PARAM_STR);
-        $query->bindValue(':image',$image, PDO::PARAM_STR);
         $query->bindValue(':description',$description, PDO::PARAM_STR);
         $query->bindValue(':annee',$annee, PDO::PARAM_INT);
 
