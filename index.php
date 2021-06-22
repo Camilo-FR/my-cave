@@ -19,6 +19,15 @@ session_start();
         elseif($url === 'edit') {
             require './php/template/editform.php';
         }
+        elseif($url === 'subscribeform') {
+            require './php/form_conditions/subscribeform.php';
+        }
+        elseif($url === 'loginform') {
+            require './php/form_conditions/loginform.php';
+        }
+        elseif($url === 'logout') {
+            require './php/form_conditions/logout.php';
+        }
         else
         {
             require './php/template/404.php';

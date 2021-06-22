@@ -28,18 +28,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Cave</title>
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
+<link rel="stylesheet" href="assets/css/normalize.css">
 <link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 <body>
-    <h1>Hello World !!</h1>
 
-    <p>Voici mes bouteilles de vins : </p>
 
     <main class="container">
         <div class="row">
@@ -85,18 +81,61 @@
                             <td> <img src="design/images/<?= $bottle['image'] ?>" alt="nouvelle-bouteille" class="img-fluid"> </td>
                             <td><?= $bottle['description'] ?></td>
                             <td><?= $bottle['annee'] ?></td>
-                            <td>  <a href="details?id=<?=$bottle['id']?>" class="btn btn-primary"> Voir </a> </td>
+                            <?php if(isset($_SESSION['user'])) { ?><td>  <a href="details?id=<?=$bottle['id']?>" class="btn btn-primary"> Voir </a> </td> <?php } ?>
                         </tr>
                         <?php
                         }
                         ?>
                     </tbody>
                 </table>
-                <a href="addform" class="btn btn-primary">Ajouter une bouteille de vin</a>
+                <?php if(isset($_SESSION['user'])) { ?><p><a href="addform" class="btn btn-primary">Ajouter une bouteille de vin</a>  <a href="logout" class="btn btn-danger">Déconnexion</a></p> <?php } ?>
             </section>
         </div>
     </main>
 
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                        <h1>Connectez-vous pour gérer votre cave !</h1>
+                <form action="loginform" method="POST">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="Pseudonyme" name="pseudo" required>
+                        <label for="floatingInput">Pseudonyme</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
+                        <label for="password">Mot de Passe</label>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Se Connecter</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                        <h1>Pas encore membre ? Inscrivez-vous içi !</h1>
+                <form action="subscribeform" method="POST">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="Pseudonyme" name="pseudo">
+                        <label for="floatingInput">Pseudonyme</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
+                        <label for="password">Mot de Passe</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
+                        <label for="password">Confirmer le Mot de Passe</label>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Se Connecter</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
 <script src="assets/js/script.js"></script>
 </body>

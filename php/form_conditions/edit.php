@@ -11,6 +11,7 @@ if($_POST){
     && isset($_POST['pays']) && !empty($_POST['pays'])
     && isset($_POST['region']) && !empty($_POST['region'])
     && isset($_POST['annee']) && !empty($_POST['annee'])
+    && isset($_FILES['image'])
     && isset($_POST['description']) && !empty($_POST['description'])){
 
         $db;
@@ -27,16 +28,42 @@ if($_POST){
         $description = valid_data($_POST['description']);
 
 
-        updatebottle($id, $nom, $cepage, $pays, $region, $description, $annee);
+           // On vient sélectionner les différentes caractéristiques de l'image qui sont dans un tableau
+           $name = $_FILES['image']['name'];
+           $type = $_FILES['image']['type'];
+           $tmpname = $_FILES['image']['tmp_name'];
+           $error = $_FILES['image']['error'];
+           $size = $_FILES['image']['size'];
+           
+           //On décompose le nom de l'image avec d'un côté le nom et de l'autre côté l'extension
+           $tabExtension = explode('.', $name);
+           $extension = strtolower(end($tabExtension));
+           
+           // Tableau des extensions autorisées
+           $extensionAutorisees = ['jpg', 'jpeg', 'gif', 'png'];
+           $tailleMax = 400000;
+           
+           // Avec les différentes conditions on va créer un nom unique pour chaque image grâce à la fonction uniqid.
+           if(in_array($extension, $extensionAutorisees) && $size <= $tailleMax && $error == 0 ){
+           
+           $uniqueName = uniqid('', true);
+           $image= $uniqueName.'.'.$extension;
+           
+           move_uploaded_file($tmpname, 'design/images/'.$image);
+          
+           
+           updatebottle($id, $nom, $cepage, $pays, $region, $description, $image, $annee);
+           
 
-        $_SESSION['message'] = "Bouteille modifiée avec succès !";
-        header('Location: http://localhost/my-cave/');
+           $_SESSION['message'] = "Bouteille modifiée avec succès !";
+           header('Location: http://localhost/my-cave/');
 
-        require_once('php/connect/close.php');
-    }else{
-        $_SESSION['erreur'] = "Le formulaire est incomplet";
+           }else{
+           $_SESSION['erreur'] = "Erreur lors du remplissage des champs";
+        }
     }
 }
+
 
 
 // Est-ce que l'id existe et est-ce qu'il n'est pas vide dans l'URL

@@ -42,13 +42,13 @@ function addbottle(string $nom, string $cepage, string $pays, string $region, st
 
 // UPDATE : Modifier des bouteilles
 
-function updatebottle(int $id, string $nom, string $cepage, string $pays, string $region, string $description, int $annee) {
+function updatebottle(int $id, string $nom, string $cepage, string $pays, string $region, string $description, string $image, int $annee) {
     
     $db;
     connexion($db);
     
     try {
-        $query = $db->prepare("UPDATE `bouteilles` SET `nom`=:nom, `cepage`=:cepage, `pays`=:pays, `region`=:region, `description`=:description, `annee`=:annee
+        $query = $db->prepare("UPDATE `bouteilles` SET `nom`=:nom, `cepage`=:cepage, `pays`=:pays, `region`=:region, `description`=:description, `image`=:image, `annee`=:annee
                 WHERE `id`=:id;");
                     
         $query->bindValue(':id',$id, PDO::PARAM_INT);
@@ -57,6 +57,7 @@ function updatebottle(int $id, string $nom, string $cepage, string $pays, string
         $query->bindValue(':pays',$pays, PDO::PARAM_STR);
         $query->bindValue(':region',$region, PDO::PARAM_STR);
         $query->bindValue(':description',$description, PDO::PARAM_STR);
+        $query->bindValue(':image',$image, PDO::PARAM_STR);
         $query->bindValue(':annee',$annee, PDO::PARAM_INT);
 
         $query->execute();
@@ -66,24 +67,6 @@ function updatebottle(int $id, string $nom, string $cepage, string $pays, string
     }
 }
 
-// Modifier l'image
-
-function updateimage(int $id, string $image) {
-    $db;
-    connexion($db);
-
-    try {
-        $query = $db->prepare("UPDATE `bouteilles` SET `image`=:image WHERE `id`=:id;");
-
-        $query->bindValue(':id',$id, PDO::PARAM_INT);
-        $query->bindValue(':image',$image, PDO::PARAM_STR);
-
-        $query->execute();
-
-    }catch(PDOException $e){
-        return "Erreur : " . $e->getMessage();
-    }
-}
 
 // LOGIN
 

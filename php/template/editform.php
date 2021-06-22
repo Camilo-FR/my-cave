@@ -1,7 +1,7 @@
 <?php 
 
 require('php/form_conditions/edit.php');
-require('php/form_conditions/editupload.php');
+
 
 ?>
        
@@ -24,26 +24,8 @@ require('php/form_conditions/editupload.php');
     <main class="container">
         <div class="row">
             <section class="col-12">
-            <h2>Veuillez d'abord modifier l'image</h2>
-            <?php
-            if(!empty($_SESSION['message'])) {
-                echo '<div class="alert alert-success" role="alert">
-                '. $_SESSION['message'].'
-              </div>';
-              $_SESSION['message'] = "";
-            }
-            ?>
-            <p>Extensions acceptées : 'jpg', 'jpeg', 'gif', 'png'</p>
-            <p>Taille maximum : 4Mo</p>
-            <form action="" method="POST" enctype="multipart/form-data">
-                <div class="form-group">
-                <label for="image">Image</label>
-                <input type="file" id="image" name="image" class="form-control" value="<?= $bottle['image'] ?>">
-                <button class="btn btn-primary" type="submit">Modifier l'image</button>
-                </div>
-            </form>
             <h2>Modifier les caractéristiques de la bouteille</h2>
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                 <label for="nom">Nom</label>
                 <input type="text" id="nom" name="nom" class="form-control" value="<?= $bottle['nom'] ?>">
@@ -67,6 +49,12 @@ require('php/form_conditions/editupload.php');
                 <div class="form-group">
                 <label for="description">Description</label>
                 <input type="text" id="description" name="description" class="form-control" value="<?= $bottle['description'] ?>">
+                </div>
+                <div class="form-group">
+                <label for="image">Image</label>
+                <p>Extensions acceptées : 'jpg', 'jpeg', 'gif', 'png'</p>
+                <p>Taille maximum : 4Mo</p>
+                <input type="file" id="image" name="image" class="form-control" value="<?= $bottle['image'] ?>">
                 </div>
                 <input type="hidden" value="<?= $bottle['id'] ?>" name="id">
                 <p><button class="btn btn-primary" type="submit">Envoyer</button> <a href="index.php" class="btn btn-primary">Retour</a></p> 
