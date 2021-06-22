@@ -1,7 +1,7 @@
 <?php
 
 require('php/form_conditions/add.php');
-require('php/form_conditions/addupload.php');
+
 
 ?>
 
@@ -22,16 +22,8 @@ require('php/form_conditions/addupload.php');
     <main class="container">
         <div class="row">
             <section class="col-12">
-            <?php
-            if(!empty($_SESSION['message'])) {
-                echo '<div class="alert alert-success" role="alert">
-                '. $_SESSION['message'].'
-              </div>';
-              $_SESSION['message'] = "";
-            }
-            ?>
             <h1>Ajouter une bouteille</h1>
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                 <label for="nom">Nom</label>
                 <input type="text" id="nom" name="nom" class="form-control">

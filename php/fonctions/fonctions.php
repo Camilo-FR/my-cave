@@ -28,7 +28,7 @@ function addbottle(string $nom, string $cepage, string $pays, string $region, st
         $query->bindValue(':pays',$pays, PDO::PARAM_STR);
         $query->bindValue(':region',$region, PDO::PARAM_STR);
         $query->bindValue(':description',$description, PDO::PARAM_STR);
-        $query->bindValue(':image',$description, PDO::PARAM_STR);
+        $query->bindValue(':image',$image, PDO::PARAM_STR);
         $query->bindValue(':annee',$annee, PDO::PARAM_INT);
 
         $query->execute();
