@@ -1,12 +1,77 @@
+/*=================*/
+/*=====GLOBAL=====*/
+/*================*/
+
 body {
-  background-color: #b89db4;
+  background-color: #06000a;
+  color: #eeebdd;
+}
+
+.btn-primary {
+  background-color: rgb(100, 12, 12);
+  border: rgb(100, 12, 12);
+}
+
+.btn-primary:hover {
+  background-color: #06000a;
+  border: #06000a;
+}
+
+.btn-danger {
+  background-color: rgb(66, 11, 64);
+  border: rgb(66, 11, 64);
+}
+
+.btn-danger:hover {
+  background-color: #06000a;
+  border: #06000a;
+}
+
+/*=================*/
+/*=======TOP=======*/
+/*================*/
+nav {
+  background-color: #eeebdd;
+  color: #06000a;
+}
+
+.navbar a {
+  font-size: 20px;
+  font-weight: bold;
+}
+.show {
+  display: flex !important;
+}
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#nav-m {
+  background-color: #f8f9fa;
+  color: #06000a;
+  width: 100%;
+  margin: 0 auto;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#nav-m a {
+  text-decoration: none;
+  color: #06000a;
 }
 
 .container {
   margin: 5rem auto;
 }
 
-.row > *{
+.row > * {
   padding-right: 0;
   padding-left: 0;
 }
@@ -19,15 +84,98 @@ video {
   position: absolute;
   left: 25%;
   top: 40%;
-  font-size: 55px;
+  font-size: 70px;
   font-weight: bold;
   color: #eeebdd;
+  width: 200px;
 }
 
-.form-floating{
+/*===================*/
+/*=======CARDS=======*/
+/*==================*/
+
+.row {
+  gap: 15px;
+}
+
+.title-card-section {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  text-align: center;
+  border: solid 2px #eeebdd;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #eeebdd;
+  color: #06000a;
+  font-size: 40px;
+}
+
+.card {
+  color: #06000a;
+  border-radius: 15px;
+  margin-left: 5%;
+}
+
+.card img {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.form-floating {
   margin-top: 1rem;
 }
 
 .btn {
   margin-top: 1rem;
+}
+
+.btn-catalogue {
+  display: flex;
+  gap: 20px;
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+.btn-catalogue .btn-primary:hover {
+  background-color: #eeebdd;
+  color: rgb(100, 12, 12);
+  font-weight: bold;
+}
+
+.btn-catalogue .btn-danger:hover {
+  background-color: #eeebdd;
+  color: rgb(66, 11, 64);
+  font-weight: bold;
+}
+
+/*===================*/
+/*=======LOGIN=======*/
+/*==================*/
+
+.login {
+  border: solid 4px #eeebdd;
+  padding: 4rem;
+  border-radius: 15px;
+  background-color: #eeebdd;
+  color: #06000a;
+}
+
+.svg-login {
+  padding-left: 10%;
+}
+
+/*========================*/
+/*=======SUBSCRIBE=======*/
+/*=======================*/
+
+.subscribe {
+  border: solid 4px #eeebdd;
+  padding: 4rem;
+  border-radius: 15px;
+  background-color: #eeebdd;
+  color: #06000a;
+}
+
+.svg-subscribe {
+  padding-left: 15%;
 }
