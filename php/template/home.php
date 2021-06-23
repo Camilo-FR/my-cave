@@ -30,13 +30,20 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-<link rel="stylesheet" href="assets/css/normalize.css">
-<link rel="stylesheet" href="assets/css/style.css">
-
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
 </head>
 <body>
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+               
+                <video src="design/video/top-mycave.ogg" autoplay loop></video>
+                <h1 class="top-video">MyCave</h1>
 
-
+            </div>
+        </div>
+    </section>
     <main class="container">
         <div class="row">
             <section class="col-12">
@@ -66,7 +73,7 @@
                         <th>Image</th>
                         <th>Description</th>
                         <th>Année</th>
-                        <th>Actions</th>
+                        <?php if(isset($_SESSION['user'])) { ?><th>Actions</th> <?php } ?>
                     </thead>
                     <tbody>
                         <?php
