@@ -16,7 +16,7 @@
 
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
-    require_once('php/connect/close.php');
+ 
 
     ?>
 
