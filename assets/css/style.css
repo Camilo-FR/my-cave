@@ -35,6 +35,10 @@ nav {
   color: #06000a;
 }
 
+.bg-light {
+  background-color: #eeebdd !important;
+}
+
 .navbar a {
   font-size: 20px;
   font-weight: bold;
