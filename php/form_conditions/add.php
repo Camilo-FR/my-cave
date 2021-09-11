@@ -1,6 +1,6 @@
 <?php
     require('php/fonctions/fonctions.php');
-    
+    // var_dump($_POST);
     if($_POST){
         if(isset($_POST['nom']) && !empty($_POST['nom'])
         && isset($_POST['cepage']) && !empty($_POST['cepage'])
@@ -50,7 +50,6 @@
             
             addbottle($nom, $cepage, $pays, $region, $description, $image, $annee);
             
-
             $_SESSION['message'] = "Bouteille ajouté";
             header('Location: http://localhost/my-cave/');
 

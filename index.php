@@ -15,6 +15,9 @@ session_start();
         }
         elseif($url === 'addform') {
             require './php/template/addform.php';
+        } 
+        elseif($url === 'addbottle') {
+            require './php/form_conditions/add.php';
         }
         elseif($url === 'edit') {
             require './php/template/editform.php';

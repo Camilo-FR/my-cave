@@ -2,6 +2,16 @@
 
 require('php/form_conditions/add.php');
 
+$db;
+connexion($db);
+
+$sql = 'SELECT * FROM pays';
+
+$query = $db->prepare($sql);
+$query->execute();
+
+$result = $query->fetchAll(PDO::FETCH_ASSOC);
+
 
 ?>
 
@@ -22,8 +32,32 @@ require('php/form_conditions/add.php');
     <main class="container">
         <div class="row">
             <section class="col-12">
-            <h1>Ajouter une bouteille</h1>
-            <form action="" method="POST" enctype="multipart/form-data">
+            <h1>Je rajoute ma bouteille</h1>
+            <h3>Chaque pays possède ses propres saveurs et caractéristiques</h3>
+            <p>Commençons donc par le pays : rajoutez le manuellement ou sélectionnez le parmis ceux déjà présent !</p>
+
+            <form action="" method="POST">
+                <div class="form-group">
+                    <label for="pays">Pays</label>
+                    <input type="text" id="pays" name="pays" class="form-control">
+                </div>
+                <button class="btn btn-primary" type="submit">Ajouter</button>
+            </form>
+
+            <form action="addbottle" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <select name="pays" id="">
+                        <option value="">----- Choisir -----</option>
+                        <?php 
+                    foreach($result as $country) {
+                        ?>
+                        <option value="<?= $country['id'] ?>"> <?= $country['pays'] ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                </div>
+
                 <div class="form-group">
                 <label for="nom">Nom</label>
                 <input type="text" id="nom" name="nom" class="form-control">
@@ -31,10 +65,6 @@ require('php/form_conditions/add.php');
                 <div class="form-group">
                 <label for="cepage">Cépage</label>
                 <input type="text" id="cepage" name="cepage" class="form-control">
-                </div>
-                <div class="form-group">
-                <label for="pays">Pays</label>
-                <input type="text" id="pays" name="pays" class="form-control">
                 </div>
                 <div class="form-group">
                 <label for="region">Région</label>
@@ -54,7 +84,7 @@ require('php/form_conditions/add.php');
                 <p class="text-image">Taille maximum : 4Mo</p>
                 <input type="file" id="image" name="image" class="form-control" >
                 </div>
-                <p><button class="btn btn-primary" type="submit">Envoyer</button> <a href="index.php" class="btn btn-primary">Retour</a></p> 
+                <p><button class="btn btn-primary" type="submit">Ajouter</button> <a href="index.php" class="btn btn-primary">Retour</a></p> 
             </form> 
             </section>
         </div>

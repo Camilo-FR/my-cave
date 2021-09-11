@@ -101,7 +101,7 @@
 
             <h1 class="title-card-section">Votre cave à vins</h1>
             <!-- barre de recherche -->
-            <form action="" method="GET">
+            <form action="#search" method="GET">
                 <input type="search" name="search" placeholder="rechercher un pays" autocomplete="off">
                 <input class="btn btn-primary" type="submit" value="rechercher">
             </form>
@@ -109,16 +109,23 @@
             <!-- Différentes Cards -->
            
             <?php
+                    if ($bottle = NULL) {
+                        ?>
+                <div id="search" class="card bg-light col-lg-3 col-md-6">
+                    <h5 class="card-title">Aucun pays trouvé</h5>
+                </div>
+            <?php
+                    }
                     foreach($result as $bottle) {
             ?>
-            <div class="card bg-light col-lg-3 col-md-6">
+            <div id="search" class="card bg-light col-lg-3 col-md-6">
                         <img src="design/images/<?= $bottle['image'] ?>" alt="nouvelle-bouteille" class="img-fluid" class="card-img-top">
                 <div class="card-body">
                         <h5 class="card-title"><?= $bottle['nom'] ?></h5>
                         <p class="card-text">
                             <ul>
                             <li><?= $bottle['cepage'] ?> <?= $bottle['annee'] ?></li>
-                            <li><?= $bottle['pays']; ?></li>
+                            <li><?= $bottle['pays'] ?></li>
                             <li><?= $bottle['region'] ?></li>
                             </ul>
                             <?= $bottle['description'] ?>

@@ -14,18 +14,18 @@ function valid_data($data) {
 
 // CREATE : Ajouter des bouteilles
 
-function addbottle(string $nom, string $cepage, string $pays, string $region, string $description, string $image, int $annee) {
+function addbottle(string $nom, string $cepage, int $pays, string $region, string $description, string $image, int $annee) {
     
     $db;   
     connexion($db);
     
     try {
-        $query = $db->prepare("INSERT INTO bouteilles(nom, cepage, pays, region, description, image, annee)
-                VALUES(:nom,:cepage,:pays, :region, :description, :image, :annee)");
+        $query = $db->prepare("INSERT INTO bouteilles(nom, cepage, id_pays, region, description, image, annee)
+                VALUES(:nom, :cepage, :pays, :region, :description, :image, :annee)");
                     
         $query->bindValue(':nom',$nom, PDO::PARAM_STR);
         $query->bindValue(':cepage',$cepage, PDO::PARAM_STR);
-        $query->bindValue(':pays',$pays, PDO::PARAM_STR);
+        $query->bindValue(':pays',$pays, PDO::PARAM_INT);
         $query->bindValue(':region',$region, PDO::PARAM_STR);
         $query->bindValue(':description',$description, PDO::PARAM_STR);
         $query->bindValue(':image',$image, PDO::PARAM_STR);
