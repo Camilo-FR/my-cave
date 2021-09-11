@@ -76,7 +76,7 @@ function select_user($pseudo) {
     connexion($db);
     
         try {
-            $query = $db->prepare("SELECT * FROM authentification WHERE pseudo=:pseudo");
+            $query = $db->prepare("SELECT * FROM utilisateurs WHERE pseudo=:pseudo");
             
             $query->bindValue(':pseudo',$pseudo);
     
@@ -99,7 +99,7 @@ function subscribe(string $pseudo, string $password) {
     connexion($db);
 
 try {
-    $query = $db->prepare("INSERT INTO authentification(pseudo, password) VALUES(:pseudo, :password)");
+    $query = $db->prepare("INSERT INTO utilisateurs(pseudo, password) VALUES(:pseudo, :password)");
 
     $query->bindValue(':pseudo',$pseudo);
     $query->bindValue(':password',$password);
