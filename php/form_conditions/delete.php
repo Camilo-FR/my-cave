@@ -36,7 +36,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
     $query->execute();
 
     $_SESSION['message'] = "Bouteille supprimée avec succès !";
-    header('Location: http://localhost/my-cave/');
+    header('Location: http://localhost/my-cave/#nav');
 
 }else{
     $_SESSION['erreur'] = 'URL invalide';

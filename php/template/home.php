@@ -1,7 +1,5 @@
 <?php
 
-
-
     $db;
     connexion($db);
        
@@ -15,6 +13,7 @@
         $query->execute();
 
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        var_dump($result);
 
 // Requête pour la barre de recherche
 
@@ -54,7 +53,7 @@
     </section>
 
 <!--******Section avec cards********-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#"><img src="design/logo.png" alt="logo-my-cave"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -107,16 +106,10 @@
             </form>
 
             <!-- Différentes Cards -->
-           
+
             <?php
-                    if ($bottle = NULL) {
-                        ?>
-                <div id="search" class="card bg-light col-lg-3 col-md-6">
-                    <h5 class="card-title">Aucun pays trouvé</h5>
-                </div>
-            <?php
-                    }
                     foreach($result as $bottle) {
+                        // var_dump($bottle['cepage']);
             ?>
             <div id="search" class="card bg-light col-lg-3 col-md-6">
                         <img src="design/images/<?= $bottle['image'] ?>" alt="nouvelle-bouteille" class="img-fluid" class="card-img-top">
@@ -138,7 +131,9 @@
         ?>             
         </div>
         <?php
-        if(isset($_SESSION['user'])) { ?><div class="btn-catalogue"><a href="addform" class="btn btn-primary">Ajouter une bouteille de vin</a>  <a href="logout" class="btn btn-danger">Déconnexion</a></div> <?php } 
+        if(isset($_SESSION['admin'])) { ?><div class="btn-catalogue"><a href="adminform" class="btn btn-primary">Consulter les utilisateurs</a> <?php }
+        if(isset($_SESSION['user'])) { ?><div class="btn-catalogue"><a href="addform" class="btn btn-primary">Ajouter une bouteille de vin</a>
+        <a href="logout" class="btn btn-danger">Déconnexion</a></div> <?php } 
         ?>  
     </main>
 

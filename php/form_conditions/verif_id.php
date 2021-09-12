@@ -23,9 +23,9 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
 
     if(!$bottle){
         $_SESSION['erreur'] = "Cet id n'existe pas";
-        header('Location: http://localhost/my-cave/');
+        header('Location: http://localhost/my-cave/#nav');
     }
 }else{
     $_SESSION['erreur'] = 'URL invalide';
-    header('Location: http://localhost/my-cave/');
+    header('Location: http://localhost/my-cave/#nav');
 }

@@ -3,6 +3,14 @@
 
 require('php/form_conditions/verif_id.php');
 
+$db;
+connexion($db);
+   
+// On récupère les informations dans notre table
+
+    $sql = 'SELECT * FROM `bouteilles` INNER JOIN `pays` ON bouteilles.id_pays = pays.id';
+
+
 ?>
 
 <!DOCTYPE html>

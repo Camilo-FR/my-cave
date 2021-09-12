@@ -17,16 +17,16 @@ if(isset($_POST['pseudo'], $_POST['password']))
             $_SESSION['user'] = $user[0]['pseudo'];
             
             $_SESSION['message'] = "Bienvenue ! Vous êtes bien connecté !";
-            header('Location: http://localhost/my-cave/');
+            header('Location: http://localhost/my-cave/#nav');
         }else {
             $_SESSION['erreur'] = "Le mot de passe est invalide";
-            header('Location: http://localhost/my-cave/');
+            header('Location: http://localhost/my-cave/#nav');
         }
     }else {
         $_SESSION['erreur'] = "Il manque des éléments";
-        header('Location: http://localhost/my-cave/');
+        header('Location: http://localhost/my-cave/#nav');
     }
 }else {
     $_SESSION['erreur'] = "Erreur";
-    header('Location: http://localhost/my-cave/');
+    header('Location: http://localhost/my-cave/#search');
 }
