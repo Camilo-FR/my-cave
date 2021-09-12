@@ -1,8 +1,18 @@
 <?php 
 
 require('php/form_conditions/edit.php');
+require('php/form_conditions/verif_id.php');
 
+$db;
+connexion($db);
 
+$sql = 'SELECT * FROM pays';
+
+$query = $db->prepare($sql);
+$query->execute();
+
+$result = $query->fetchAll(PDO::FETCH_ASSOC);
+// var_dump($bottle);
 ?>
        
 
@@ -22,11 +32,43 @@ require('php/form_conditions/edit.php');
 <body>
 
 
+
     <main class="container">
         <div class="row">
+            <?php
+        if(!empty($_SESSION['message'])) {
+                echo '<div class="alert alert-success" role="alert">
+                '. $_SESSION['message'].'
+              </div>';
+              $_SESSION['message'] = "";
+            }
+            ?>
             <section class="col-12">
             <h2>Modifier les caractéristiques de la bouteille</h2>
-            <form action="" method="POST" enctype="multipart/form-data">
+
+            <p>Choisissez un pays dans la liste ou rajoutez le s'il n'est pas encore dans notre catalogue et modifiez ensuite les autres caractéristiques</p>
+
+        <form action="addcountry" method="POST">
+            <div class="form-group">
+                    <label for="pays">Pays</label>
+                    <input type="text" id="pays" name="pays" class="form-control">
+                </div>
+                <button class="btn btn-primary" type="submit">Ajouter</button>
+        </form>
+            
+            <form action="edit" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <select name="pays" id="">
+                        <option value="">----- Choisir -----</option>
+                        <?php 
+                    foreach($result as $country) {
+                        ?>
+                        <option value="<?= $country['id'] ?>"> <?= $country['pays'] ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                </div>
                 <div class="form-group">
                 <label for="nom">Nom</label>
                 <input type="text" id="nom" name="nom" class="form-control" value="<?= $bottle['nom'] ?>">
@@ -35,10 +77,7 @@ require('php/form_conditions/edit.php');
                 <label for="cepage">Cépage</label>
                 <input type="text" id="cepage" name="cepage" class="form-control" value="<?= $bottle['cepage'] ?>">
                 </div>
-                <div class="form-group">
-                <label for="pays">Pays</label>
-                <input type="text" id="pays" name="pays" class="form-control" value="<?= $bottle['pays'] ?>">
-                </div>
+
                 <div class="form-group">
                 <label for="region">Région</label>
                 <input type="text" id="region" name="region" class="form-control" value="<?= $bottle['region'] ?>">
@@ -57,7 +96,7 @@ require('php/form_conditions/edit.php');
                 <p>Taille maximum : 4Mo</p>
                 <input type="file" id="image" name="image" class="form-control" value="<?= $bottle['image'] ?>">
                 </div>
-                <input type="hidden" value="<?= $bottle['id'] ?>" name="id">
+                <input type="hidden" value="<?= $bottle[0] ?>" name="id">
                 <p><button class="btn btn-primary" type="submit">Envoyer</button> <a href="index.php" class="btn btn-primary">Retour</a></p> 
             </form>
          

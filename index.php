@@ -19,8 +19,20 @@ session_start();
         elseif($url === 'addbottle') {
             require './php/form_conditions/add.php';
         }
+        elseif($url === 'adminform') {
+            require './php/template/adminform.php';
+        }
+        elseif($url === 'addcountry') {
+            require './php/form_conditions/addcountry.php';
+        }
         elseif($url === 'edit') {
             require './php/template/editform.php';
+        }
+        elseif($url === 'deleteconfirmation') {
+            require './php/template/deleteconfirmation.php';
+        }
+        elseif($url === 'delete') {
+            require './php/form_conditions/delete.php';
         }
         elseif($url === 'subscribeform') {
             require './php/form_conditions/subscribeform.php';

@@ -12,7 +12,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
     // On nettoie l'id envoyé
     $id = strip_tags($_GET['id']);
 
-    $sql = 'SELECT * FROM `bouteilles` WHERE `id` = :id;';
+    $sql = 'SELECT * FROM `bouteilles` INNER JOIN `pays` ON bouteilles.id_pays = pays.id WHERE bouteilles.id = :id;';
 
     $query = $db->prepare($sql);
     // on "accroche" les paramètres

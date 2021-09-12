@@ -15,7 +15,8 @@ if(isset($_POST['pseudo'], $_POST['password']))
             session_start();
 
             $_SESSION['user'] = $user[0]['pseudo'];
-            
+            $_SESSION['role'] = $user[0]['role'];
+    //  var_dump($user);       
             $_SESSION['message'] = "Bienvenue ! Vous êtes bien connecté !";
             header('Location: http://localhost/my-cave/#nav');
         }else {

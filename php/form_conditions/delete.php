@@ -1,6 +1,6 @@
 <?php
 
-require('../connect/connect.php');
+require_once('php/connect/connect.php');
 session_start();
 
 // Est-ce que l'id existe et est-ce qu'il n'est pas vide dans l'URL

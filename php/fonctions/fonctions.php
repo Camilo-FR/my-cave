@@ -39,6 +39,24 @@ function addbottle(string $nom, string $cepage, int $pays, string $region, strin
     }
 }
 
+// ADDCOUNTRY : rajouter un pays
+
+function addcountry(string $pays) {
+        
+    $db;   
+    connexion($db);
+
+    try {
+        $query = $db->prepare("INSERT INTO pays(pays) VALUES(:pays)");
+
+        $query->bindValue(':pays',$pays, PDO::PARAM_STR);
+
+        $query->execute();
+    } catch(PDOException $e){
+        return "Erreur : " . $e->getMessage();
+    }
+}
+
 
 // UPDATE : Modifier des bouteilles
 
@@ -76,7 +94,7 @@ function select_user($pseudo) {
     connexion($db);
     
         try {
-            $query = $db->prepare("SELECT * FROM utilisateurs WHERE pseudo=:pseudo");
+            $query = $db->prepare("SELECT * FROM utilisateurs INNER JOIN role ON utilisateurs.id_role = role.id WHERE pseudo=:pseudo");
             
             $query->bindValue(':pseudo',$pseudo);
     

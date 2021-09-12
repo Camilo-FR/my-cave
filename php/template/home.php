@@ -5,7 +5,7 @@
        
 // On récupère les informations dans notre table
 
-        $sql = 'SELECT * FROM `bouteilles` INNER JOIN `pays` ON bouteilles.id_pays = pays.id';
+        $sql = 'SELECT *, bouteilles.id as id, pays.id as idPays FROM `bouteilles` INNER JOIN `pays` ON bouteilles.id_pays = pays.id';
 
 // On prépare la requête puis on l'éxécute
         
@@ -13,7 +13,7 @@
         $query->execute();
 
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
-        var_dump($result);
+        // var_dump($result);
 
 // Requête pour la barre de recherche
 
@@ -131,7 +131,7 @@
         ?>             
         </div>
         <?php
-        if(isset($_SESSION['admin'])) { ?><div class="btn-catalogue"><a href="adminform" class="btn btn-primary">Consulter les utilisateurs</a> <?php }
+        if(isset($_SESSION['role']) && ($_SESSION['role']) === 'admin') { ?><div class="btn-catalogue"><a href="adminform" class="btn btn-primary">Consulter les utilisateurs</a> <?php }
         if(isset($_SESSION['user'])) { ?><div class="btn-catalogue"><a href="addform" class="btn btn-primary">Ajouter une bouteille de vin</a>
         <a href="logout" class="btn btn-danger">Déconnexion</a></div> <?php } 
         ?>  

@@ -31,12 +31,20 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
     <main class="container">
         <div class="row">
+            <?php
+        if(!empty($_SESSION['message'])) {
+                echo '<div class="alert alert-success" role="alert">
+                '. $_SESSION['message'].'
+              </div>';
+              $_SESSION['message'] = "";
+            }
+            ?>
             <section class="col-12">
             <h1>Je rajoute ma bouteille</h1>
             <h3>Chaque pays possède ses propres saveurs et caractéristiques</h3>
             <p>Commençons donc par le pays : rajoutez le manuellement ou sélectionnez le parmis ceux déjà présent !</p>
 
-            <form action="" method="POST">
+            <form action="addcountry" method="POST">
                 <div class="form-group">
                     <label for="pays">Pays</label>
                     <input type="text" id="pays" name="pays" class="form-control">

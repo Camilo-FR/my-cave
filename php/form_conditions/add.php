@@ -51,7 +51,7 @@
             addbottle($nom, $cepage, $pays, $region, $description, $image, $annee);
             
             $_SESSION['message'] = "Bouteille ajouté";
-            header('Location: http://localhost/my-cave/');
+            header('Location: http://localhost/my-cave/#nav');
 
             }else{
             $_SESSION['erreur'] = "Le formulaire est incomplet";

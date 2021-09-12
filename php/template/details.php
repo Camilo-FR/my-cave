@@ -3,18 +3,12 @@
 
 require('php/form_conditions/verif_id.php');
 
-$db;
-connexion($db);
-   
-// On récupère les informations dans notre table
 
-    $sql = 'SELECT * FROM `bouteilles` INNER JOIN `pays` ON bouteilles.id_pays = pays.id';
-
-
+// var_dump($bottle);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,7 +35,7 @@ connexion($db);
             </ul>
             <?= $bottle['description'] ?>
         </p>
-            <p><a href="edit?id=<?=$bottle['id'] ?>" class="btn btn-primary">Modifier</a> <a href="php/form_conditions/delete.php?id=<?=$bottle['id'] ?>" class="btn btn-primary">Supprimer</a> <a href="index.php" class="btn btn-primary">Retour</a> </p>
+            <p><a href="edit?id=<?=$bottle[0] ?>" class="btn btn-primary">Modifier</a> <a href="deleteconfirmation?id=<?=$bottle[0]?>" class="btn btn-primary">Supprimer</a> <a href="index.php" class="btn btn-primary">Retour</a> </p>
         </section>
     </div>
 </div>
