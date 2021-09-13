@@ -202,7 +202,7 @@
                         <label for="password">Mot de Passe</label>
                     </div>
                     <div class="form-floating">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="confirmpassword" required>
                         <label for="password">Confirmer le Mot de Passe</label>
                     </div>
                     <button class="btn btn-primary" type="submit">Se Connecter</button>
