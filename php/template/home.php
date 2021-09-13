@@ -34,20 +34,41 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="icon" href="design/wine-icon.jpg" />
-    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/66aa7c98b3.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="bg-dark-color light-color">
+
 
     <!--*****Section avec vidéo*****-->
     
     <section class="top">
         <div class="container-fluid">
-            <div class="row">
-               
-                <video src="design/video/top-mycave.ogg" autoplay loop></video>
-                <h1 class="top-video">MyCave</h1>
 
+        <a href="#" id="back-to-top"></a>
+               
+                <!-- <video src="design/video/top-mycave.ogg" autoplay loop></video> -->
+
+                <img class="landing-img" src="design/images/landing.jpg" alt="bouteille de vin et grappe de raisin">
+                <h1 class="top-landing">MyCave</h1>
+
+
+            </div>
+  
+    </section>
+
+    <section class="introduction">
+        <div class="container-fluid d-flex bg-dark-color">
+            <div class="left">
+            <img class="left-img" src="design/images/img-introduction.jpg" alt="dessin de vins">
+            </div>
+            <div class="right">
+                <h2 class="light-color">Le vin à travers son histoire</h2>
+                <p class="light-color">Ce liquide délicieux qui accompagnent nos plats est présent depuis des millénaires. Les premières traces de vin se trouvent dans la région du Caucase et notamment en Géorgie. Il se répand rapidement à travers l'Egypte, la Grèce, la Gaule ou encore Rome bien sur. La conservation du vin a beaucoup évolué en commençant notamment par la résine pendant l'antiquité. La diversité du vin s'étend sur la couleur : rouge, blanc, rosé et même orange mais il s'étend aussi à travers les pays comme le Chili ou encore les Etats-Unis. La capitale du vin restant malgré tout Bordeaux.</p>
             </div>
         </div>
     </section>
@@ -81,7 +102,7 @@
             
                 
             <!-- Affichage des messages -->
-
+<div id="msg">
             <?php
             if(!empty($_SESSION['erreur'])) {
                 echo '<div class="alert alert-danger" role="alert">
@@ -97,12 +118,12 @@
               $_SESSION['message'] = "";
             }
             ?>
-
+</div>
             <h1 class="title-card-section">Votre cave à vins</h1>
             <!-- barre de recherche -->
-            <form action="#search" method="GET">
+            <form class="search-section" action="#search" method="GET">
                 <input type="search" name="search" placeholder="rechercher un pays" autocomplete="off">
-                <input class="btn btn-primary" type="submit" value="rechercher">
+                <input class="btn btn-primary search-button" type="submit" value="rechercher">
             </form>
 
             <!-- Différentes Cards -->
@@ -131,9 +152,9 @@
         ?>             
         </div>
         <?php
-        if(isset($_SESSION['role']) && ($_SESSION['role']) === 'admin') { ?><div class="btn-catalogue"><a href="adminform" class="btn btn-primary">Consulter les utilisateurs</a> <?php }
-        if(isset($_SESSION['user'])) { ?><div class="btn-catalogue"><a href="addform" class="btn btn-primary">Ajouter une bouteille de vin</a>
-        <a href="logout" class="btn btn-danger">Déconnexion</a></div> <?php } 
+        if(isset($_SESSION['role']) && ($_SESSION['role']) === 'admin') { ?><div class="btn-catalogue"><a href="adminform" class="btn btn-primary home-btn">Consulter les utilisateurs</a> <?php }
+        if(isset($_SESSION['user'])) { ?><a href="addform" class="btn btn-primary home-btn">Ajouter une bouteille de vin</a>
+        <a href="logout" class="btn btn-danger home-btn">Déconnexion</a></div> <?php } 
         ?>  
     </main>
 
@@ -192,7 +213,19 @@
 <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_RFHPja.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
         </div>
         </div>
+
     </div>
+    <footer class="footer">
+        <div class="icons">
+           <a href="#"><i class="fab fa-facebook"></i></a>
+           <a href="#"><i class="fab fa-linkedin"></i></a>
+           <a href="#"><i class="fab fa-instagram"></i></a>
+           <a href="#"><i class="fab fa-twitter"></i></a>
+            <p class="company-name">
+                MyCave &copy; 2021, ALL Rights Reserved
+            </p>
+        </div>
+    </footer>
 
 <script src="assets/js/script.js"></script>
 </body>

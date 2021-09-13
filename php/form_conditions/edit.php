@@ -58,7 +58,7 @@ if($_POST){
            
 
            $_SESSION['message'] = "Bouteille modifiée avec succès !";
-           header('Location: http://localhost/my-cave/#nav');
+           header('Location: http://localhost/my-cave/#msg');
 
            }else{
            $_SESSION['erreur'] = "Erreur lors du remplissage des champs";

@@ -2,14 +2,17 @@
 /*=====GLOBAL=====*/
 /*================*/
 
+@import "index.scss";
+
 body {
   background-color: #06000a;
   color: #eeebdd;
+  scroll-behavior: smooth;
 }
 
 .btn-primary {
-  background-color: rgb(100, 12, 12);
-  border: rgb(100, 12, 12);
+  background-color: #640c0c;
+  border: #640c0c;
 }
 
 .btn-primary:hover {
@@ -18,13 +21,55 @@ body {
 }
 
 .btn-danger {
-  background-color: rgb(66, 11, 64);
-  border: rgb(66, 11, 64);
+  background-color: #420b40;
+  border: #420b40;
 }
 
 .btn-danger:hover {
   background-color: #06000a;
   border: #06000a;
+}
+
+/* Back to top */
+
+#back-to-top {
+  display: inline-block;
+  background-color: #640c0c;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+  opacity: 0;
+  visibility: none;
+  z-index: 1000;
+}
+#back-to-top::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#back-to-top:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+#back-to-top:active {
+  background-color: #555;
+}
+#back-to-top.show {
+  opacity: 1;
+  visibility: visible;
 }
 
 /*=================*/
@@ -39,10 +84,24 @@ nav {
   background-color: #eeebdd !important;
 }
 
+#nav {
+  position: fixed;
+  top: -85px;
+  width: 100%;
+  z-index: 10;
+  transition: 0.3s;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+}
+
 .navbar a {
   font-size: 20px;
   font-weight: bold;
 }
+
+.navbar a:hover {
+  color: #420b40;
+}
+
 .show {
   display: flex !important;
 }
@@ -53,7 +112,7 @@ nav {
 }
 
 #nav-m {
-  background-color: #f8f9fa;
+  background-color: #eeebdd;
   color: #06000a;
   width: 100%;
   margin: 0 auto;
@@ -84,14 +143,38 @@ video {
   position: relative;
 }
 
-.top-video {
+.landing-img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.top-landing {
   position: absolute;
   left: 25%;
-  top: 40%;
+  top: 30%;
   font-size: 70px;
   font-weight: bold;
   color: #eeebdd;
   width: 200px;
+}
+
+.left-img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.left {
+  width: 50%;
+}
+
+.right {
+  width: 50%;
+  text-align: center;
+  padding: 2rem;
+}
+
+.right h2 {
+  margin-top: 30%;
 }
 
 /*===================*/
@@ -112,6 +195,24 @@ video {
   background-color: #eeebdd;
   color: #06000a;
   font-size: 40px;
+}
+
+.search-section {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.search-section > input {
+  padding: 0.5rem;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  margin-right: 1rem;
+}
+
+.search-button {
+  margin-bottom: 1rem;
 }
 
 .card {
@@ -152,6 +253,11 @@ video {
   font-weight: bold;
 }
 
+.btn-catalogue a {
+  height: 4rem;
+  width: 20rem;
+}
+
 /*===================*/
 /*=======LOGIN=======*/
 /*==================*/
@@ -182,4 +288,49 @@ video {
 
 .svg-subscribe {
   padding-left: 15%;
+}
+
+/*====================*/
+/*=======FOOTER=======*/
+/*====================*/
+
+.footer {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #eeebdd;
+  text-align: center;
+  color: #06000a;
+}
+
+.footer p {
+  margin-bottom: 0;
+}
+
+.icons {
+  padding-top: 1rem;
+}
+
+.icons a {
+  text-decoration: none;
+  font-size: 2rem;
+  margin: 0.5rem;
+  color: #06000a;
+}
+
+.company-name {
+  font-size: 1.6rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 768px) {
+  html {
+    font-size: 50%;
+  }
 }

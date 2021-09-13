@@ -4,6 +4,6 @@
     
     
     $_SESSION['message'] = "Vous êtes bien déconnecté, à bientôt !";
-    header('Location: http://localhost/my-cave/#nav');
+    header('Location: http://localhost/my-cave/#msg');
 
     session_destroy();

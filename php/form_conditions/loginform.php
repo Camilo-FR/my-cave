@@ -18,14 +18,14 @@ if(isset($_POST['pseudo'], $_POST['password']))
             $_SESSION['role'] = $user[0]['role'];
     //  var_dump($user);       
             $_SESSION['message'] = "Bienvenue ! Vous êtes bien connecté !";
-            header('Location: http://localhost/my-cave/#nav');
+            header('Location: http://localhost/my-cave/#msg');
         }else {
             $_SESSION['erreur'] = "Le mot de passe est invalide";
-            header('Location: http://localhost/my-cave/#nav');
+            header('Location: http://localhost/my-cave/#msg');
         }
     }else {
         $_SESSION['erreur'] = "Il manque des éléments";
-        header('Location: http://localhost/my-cave/#nav');
+        header('Location: http://localhost/my-cave/#msg');
     }
 }else {
     $_SESSION['erreur'] = "Erreur";
