@@ -1,0 +1,36 @@
+.box {
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+  box-shadow: 2px 4px 6px #eeebdd;
+  background-color: #eeebdd;
+  border-radius: 5px;
+}
+
+.main {
+  margin-top: 15%;
+}
+
+.btn-primary {
+  background-color: #640c0c;
+  border: #640c0c;
+}
+
+.btn-primary:hover {
+  background-color: #06000a;
+  border: #06000a;
+  font-weight: bold;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li {
+  font-weight: bold;
+  color: #640c0c;
+  border-bottom: 1px solid #06000a;
+  width: 50%;
+  margin: 0 auto;
+  padding-bottom: 1rem;
+}
