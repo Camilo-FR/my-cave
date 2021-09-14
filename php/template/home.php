@@ -13,7 +13,7 @@ $query = $db->prepare($sql);
 $query->execute();
 
 $result = $query->fetchAll(PDO::FETCH_ASSOC);
-// var_dump($result);
+
 
 // Requête pour la barre de recherche
 
@@ -135,7 +135,7 @@ if (isset($_GET['search']) and !empty($_GET['search'])) {
 
             <?php
             foreach ($result as $bottle) {
-                // var_dump($bottle['cepage']);
+
             ?>
                 <div id="search" class="card bg-light col-lg-3 col-md-6">
                     <img src="design/images/<?= $bottle['image'] ?>" alt="nouvelle-bouteille" class="img-fluid" class="card-img-top">
