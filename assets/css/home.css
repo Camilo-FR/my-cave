@@ -396,6 +396,14 @@ nav {
     width: 85%;
   }
 
+  .right {
+    padding: 1rem;
+  }
+
+  .right h2 {
+    margin-top: 0;
+  }
+
   .svg-login {
     padding-left: 0;
   }

@@ -55,23 +55,25 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
                         <label for="pays">Pays</label>
                         <input type="text" id="pays" name="pays" class="form-control">
                     </div>
-                    <button class="btn btn-primary" type="submit">Ajouter</button>
+                    <div class="btn-section">
+                        <button class="btn btn-primary" type="submit">Ajouter</button>
+                    </div>
                 </form>
 
                 <form action="edit" method="POST" enctype="multipart/form-data">
-                    <div class="form-group">
+                    <div class="form-group select-form">
                         <select name="pays" id="">
-                            <option value="">----- Choisir -----</option>
+                            <option class="option-select" value="">----- Choisir -----</option>
                             <?php
                             foreach ($result as $country) {
                             ?>
-                                <option value="<?= $country['id'] ?>"> <?= $country['pays'] ?></option>
+                                <option class="option-select" value="<?= $country['id'] ?>"> <?= $country['pays'] ?></option>
                             <?php
                             }
                             ?>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class=" margin-top form-group ">
                         <label for="nom">Nom</label>
                         <input type="text" id="nom" name="nom" class="form-control" value="<?= $bottle['nom'] ?>">
                     </div>
@@ -99,7 +101,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
                         <input type="file" id="image" name="image" class="form-control" value="<?= $bottle['image'] ?>">
                     </div>
                     <input type="hidden" value="<?= $bottle[0] ?>" name="id">
-                    <p><button class="btn btn-primary" type="submit">Envoyer</button> <a href="index.php" class="btn btn-primary">Retour</a></p>
+                    <p><button class="btn btn-primary" type="submit">Envoyer</button> <button class="btn btn-primary"><a href="index.php">Retour</a></button></p>
                 </form>
 
             </section>

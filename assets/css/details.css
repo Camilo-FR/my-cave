@@ -77,17 +77,18 @@ ul {
   font-weight: bold;
 }
 
+.card-title {
+  text-align: center;
+  color: #640c0c;
+}
+
 /* Responsive */
 
 /* TABLETTE */
 
 @media screen and (max-width: 800px) {
   .container {
-    margin-top: 20%;
-  }
-
-  .card-title {
-    color: #640c0c;
+    margin-top: 15%;
   }
 
   .card-img-top {
@@ -101,7 +102,7 @@ ul {
   .container {
     padding: 1rem;
     max-width: 80%;
-    margin-top: 20%;
+    margin-top: 5%;
   }
 
   .card-img-top {

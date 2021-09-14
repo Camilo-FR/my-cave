@@ -4,7 +4,6 @@
 require('php/form_conditions/verif_id.php');
 
 
-// var_dump($bottle);
 ?>
 
 <!DOCTYPE html>

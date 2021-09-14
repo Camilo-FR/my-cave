@@ -8,7 +8,7 @@
 }
 
 .main {
-  margin-top: 15%;
+  margin-top: 22%;
 }
 
 .btn-primary {
@@ -31,4 +31,16 @@
   background-color: #06000a;
   border: #06000a;
   font-weight: bold;
+}
+
+@media screen and (max-width: 800px) {
+  .main {
+    margin-top: 50%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main {
+    margin-top: 75%;
+  }
 }
