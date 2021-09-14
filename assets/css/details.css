@@ -76,3 +76,35 @@ ul {
   color: rgb(66, 11, 64);
   font-weight: bold;
 }
+
+/* Responsive */
+
+/* TABLETTE */
+
+@media screen and (max-width: 800px) {
+  .container {
+    margin-top: 20%;
+  }
+
+  .card-title {
+    color: #640c0c;
+  }
+
+  .card-img-top {
+    max-width: 20%;
+  }
+}
+
+/* MOBILE */
+
+@media screen and (max-width: 500px) {
+  .container {
+    padding: 1rem;
+    max-width: 80%;
+    margin-top: 20%;
+  }
+
+  .card-img-top {
+    max-width: 20%;
+  }
+}

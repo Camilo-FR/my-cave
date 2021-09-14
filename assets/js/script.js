@@ -4,7 +4,6 @@ const btn = document.getElementById("back-to-top");
 const nav = document.getElementById("nav");
 
 navbarIcon.addEventListener("click", () => {
-  console.log(navbarIcon);
   navMobile.classList.toggle("show");
 });
 

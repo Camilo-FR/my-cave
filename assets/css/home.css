@@ -2,8 +2,6 @@
 /*=====GLOBAL=====*/
 /*================*/
 
-@import "index.scss";
-
 body {
   background-color: #06000a;
   color: #eeebdd;
@@ -137,10 +135,6 @@ nav {
 .row > * {
   padding-right: 0;
   padding-left: 0;
-}
-
-video {
-  position: relative;
 }
 
 .landing-img {
@@ -335,5 +329,88 @@ video {
 @media (min-width: 501px) and (max-width: 768px) {
   html {
     font-size: 50%;
+  }
+}
+
+/*=========================*/
+/*=======RESPONSIVE=======*/
+/*=======================*/
+
+/* LAPTOP */
+
+@media screen and (max-width: 1280px) {
+  .top-landing {
+    top: 20%;
+  }
+}
+
+/* TABLETTE */
+
+@media screen and (max-width: 800px) {
+  .navbar-toggler {
+    margin-right: 6rem;
+  }
+
+  .nav-mobile {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+  }
+
+  #nav-m {
+    position: fixed;
+    top: 67px;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 0 3px -3px rgba(0, 0, 0, 0.4);
+  }
+
+  .top-landing {
+    top: 11%;
+    font-size: 42px;
+  }
+
+  .card {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .col-6 {
+    margin-top: 10%;
+  }
+
+  lottie-player {
+    width: 265px !important;
+  }
+}
+
+/* MOBILE */
+
+@media screen and (max-width: 500px) {
+  #nav,
+  #nav-m {
+    width: 100vw;
+  }
+
+  #login,
+  #subscribe {
+    width: 85%;
+  }
+
+  .svg-login {
+    padding-left: 0;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .col-6 {
+    width: 100%;
+  }
+
+  .top-landing {
+    left: 50%;
+    top: 15%;
+    font-size: 25px;
   }
 }
