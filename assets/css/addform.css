@@ -39,3 +39,77 @@ body {
 .text-image {
   font-size: 15px;
 }
+
+h1,
+h3 {
+  text-align: center;
+  color: #640c0c;
+}
+
+button {
+  margin-bottom: 1rem;
+}
+
+.btn-section {
+  display: flex;
+  justify-content: center;
+}
+
+.select-form {
+  display: flex;
+  justify-content: center;
+  border-bottom: solid 1px #640c0c;
+  padding-bottom: 1rem;
+}
+
+select {
+  cursor: pointer;
+  background-color: #640c0c;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 10px;
+  color: #eeebdd;
+}
+
+option {
+  border: none;
+}
+
+.option-select {
+  cursor: pointer;
+}
+
+.option-select:hover {
+  background-color: #eeebdd;
+}
+
+.margin-top {
+  margin-top: 1rem;
+}
+
+p {
+  text-align: center;
+}
+
+button a {
+  text-decoration: none;
+  color: #eeebdd;
+}
+
+button a:hover {
+  color: #eeebdd;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    padding: 2rem;
+    max-width: 85%;
+    margin-top: 1%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    padding: 1rem;
+  }
+}

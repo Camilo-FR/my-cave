@@ -51,11 +51,13 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
                         <label for="pays">Pays</label>
                         <input type="text" id="pays" name="pays" class="form-control">
                     </div>
-                    <button class="btn btn-primary" type="submit">Ajouter</button>
+                    <div class="btn-section">
+                        <button class="btn btn-primary" type="submit">Ajouter</button>
+                    </div>
                 </form>
 
                 <form action="addbottle" method="POST" enctype="multipart/form-data">
-                    <div class="form-group">
+                    <div class="form-group select-form">
                         <select name="pays" id="">
                             <option value="">----- Choisir -----</option>
                             <?php
@@ -94,7 +96,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
                         <p class="text-image">Taille maximum : 4Mo</p>
                         <input type="file" id="image" name="image" class="form-control">
                     </div>
-                    <p><button class="btn btn-primary" type="submit">Ajouter</button> <a href="index.php" class="btn btn-primary">Retour</a></p>
+                    <p><button class="btn btn-primary" type="submit">Ajouter</button> <button class="btn btn-primary"> <a href="index.php">Retour</a></button></p>
                 </form>
             </section>
         </div>

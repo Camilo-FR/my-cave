@@ -125,6 +125,7 @@ if (isset($_GET['search']) and !empty($_GET['search'])) {
             </div>
 
             <h1 class="title-card-section">Votre cave à vins</h1>
+
             <!-- barre de recherche -->
             <form class="search-section" action="#search" method="GET">
                 <input type="search" name="search" placeholder="rechercher un pays" autocomplete="off">
