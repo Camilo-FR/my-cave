@@ -4,11 +4,11 @@
 
 
 // Est-ce que l'id existe et est-ce qu'il n'est pas vide dans l'URL
-if(isset($_GET['id']) && !empty($_GET['id'])) {
+if (isset($_GET['id']) && !empty($_GET['id'])) {
 
     $db;
     connexion($db);
-    
+
     // On nettoie l'id envoyé
     $id = strip_tags($_GET['id']);
 
@@ -21,11 +21,8 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
     $query->execute();
     $bottle = $query->fetch();
 
-    if(!$bottle){
+    if (!$bottle) {
         $_SESSION['erreur'] = "Cet id n'existe pas";
         header('Location: http://localhost/my-cave/#msg');
     }
-}else{
-    $_SESSION['erreur'] = 'URL invalide';
-    header('Location: http://localhost/my-cave/#msg');
 }

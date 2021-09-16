@@ -104,9 +104,10 @@ if (isset($_GET['search']) and !empty($_GET['search'])) {
     <main class="container" id="home">
         <div class="row">
 
+            <h1 id="msg" class="title-card-section">Votre cave à vins</h1>
 
             <!-- Affichage des messages -->
-            <div id="msg">
+            <div>
                 <?php
                 if (!empty($_SESSION['erreur'])) {
                     echo '<div class="alert alert-danger" role="alert">
@@ -123,8 +124,6 @@ if (isset($_GET['search']) and !empty($_GET['search'])) {
                 }
                 ?>
             </div>
-
-            <h1 class="title-card-section">Votre cave à vins</h1>
 
             <!-- barre de recherche -->
             <form class="search-section" action="#search" method="GET">
@@ -157,12 +156,14 @@ if (isset($_GET['search']) and !empty($_GET['search'])) {
             }
             ?>
         </div>
-        <?php
-        if (isset($_SESSION['role']) && ($_SESSION['role']) === 'admin') { ?><div class="btn-catalogue"><a href="adminform" class="btn btn-primary home-btn">Consulter les utilisateurs</a> <?php }
-                                                                                                                                                                                        if (isset($_SESSION['user'])) { ?><a href="addform" class="btn btn-primary home-btn">Ajouter une bouteille de vin</a>
+        <div class="btn-catalogue">
+            <?php
+            if (isset($_SESSION['role']) && ($_SESSION['role']) === 'admin') { ?><a href="adminform" class="btn btn-primary home-btn">Consulter les utilisateurs</a> <?php }
+                                                                                                                                                                    if (isset($_SESSION['user'])) { ?><a href="addform" class="btn btn-primary home-btn">Ajouter une bouteille de vin</a>
                 <a href="logout" class="btn btn-danger home-btn">Déconnexion</a>
-            </div> <?php }
-                    ?>
+            <?php }
+            ?>
+        </div>
     </main>
 
     <!--*******Section Login******-->
