@@ -139,13 +139,14 @@ nav {
 
 .landing-img {
   width: 100%;
+  height: 100vh;
   object-fit: cover;
 }
 
 .top-landing {
   position: absolute;
   left: 25%;
-  top: 30%;
+  top: 26%;
   font-size: 70px;
   font-weight: bold;
   color: #eeebdd;
